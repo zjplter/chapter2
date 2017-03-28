@@ -1,4 +1,4 @@
-@date 2016-05-17
+@date 2017-03-27
 
 @author: zhouj
 
@@ -18,4 +18,6 @@
 		
 #### 项目请求的路径：
     http://localhost:8080/chapter2/login/user
-		
+    
+#### 项目的初始化的sql		
+    demo.sql
