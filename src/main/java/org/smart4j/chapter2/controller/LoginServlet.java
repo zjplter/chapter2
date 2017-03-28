@@ -4,6 +4,7 @@ import org.smart4j.chapter2.model.Customer;
 import org.smart4j.chapter2.model.User;
 import org.smart4j.chapter2.service.CustomerService;
 import org.smart4j.chapter2.service.LoginService;
+import org.smart4j.chapter2.util.StringUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -72,19 +73,42 @@ public class LoginServlet extends HttpServlet {
 
         req.setCharacterEncoding("UTF-8");
 
+        String msg = "";
+
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 
-        User userForLogin = loginService.getUserForLogin(username, password);
+        if (StringUtil.isNotEmpty(username) && StringUtil.isNotEmpty(password)) {
 
-        if (userForLogin != null) {
-            List<Customer> customerList = customerService.getCustomerList();
+            User userForLogin = loginService.getUserForLogin(username, password);
 
-            req.setAttribute("customerList",customerList);
+            if (userForLogin != null) {
 
-            req.getRequestDispatcher("/WEB-INF/view/customer/customer.jsp").forward(req, resp);
-        } else
+                List<Customer> customerList = customerService.getCustomerList();
+
+                req.setAttribute("customerList", customerList);
+
+                req.getRequestDispatcher("/WEB-INF/view/customer/customer.jsp").forward(req, resp);
+            } else {
+
+                msg = "用户信息填写有误...";
+
+                req.setAttribute("message", msg);
+                req.setAttribute("Val", 0);
+
+                req.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(req, resp);
+            }
+        } else {
+
+            msg = "用户名和密码不能为空!!!!";
+
+            req.setAttribute("message", msg);
+
+            req.setAttribute("Val", 0);
+
             req.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(req, resp);
+        }
+
 
     }
 

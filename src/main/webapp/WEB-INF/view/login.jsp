@@ -10,43 +10,46 @@
 <c:set var="BASE" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-    <title>前途陌路-登陆页面</title>
+    <title>前途陌路</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="${BASE}/css/font-awesome.min.css" type="text/css" rel="stylesheet">
     <link href="${BASE}/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="${BASE}/css/htmleaf-demo.css" type="text/css" rel="stylesheet">
+    <link href="${BASE}/css/login.css" type="text/css" rel="stylesheet">
+    <!--[if IE]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
 </head>
 <body>
-
-    <div align="center">
-        <p align="center"><h2>前途陌路-登陆页</h2></p>
+    <div class="htmleaf-container" style="margin-top: 200px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-3 col-md-6">
+                    <form class="form-horizontal" action="${BASE}/login/user" method="POST">
+                        <span class="heading">前途陌路-用户登录</span>
+                        <div class="form-group">
+                            <input type="test" class="form-control" id="inputUsername" placeholder="用户名或电子邮件" name="username">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <div class="form-group help">
+                            <input type="password" class="form-control" id="inputPassword" placeholder="密　码" name="password">
+                            <i class="fa fa-lock"></i>
+                            <a href="#" class="fa fa-question-circle"></a>
+                        </div>
+                        <div class="form-group">
+                            <div class="main-checkbox">
+                                <input type="checkbox" value="None" id="checkbox1" name="check"/>
+                                <label for="checkbox1"></label>
+                            </div>
+                            <span class="text">Remember me</span>
+                            <button type="submit" class="btn btn-default">登录</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div align="center">
-        <img src="${BASE}/images/shouye.png" align="center">
-    </div>
-
-    <br><br><br><br>
-
-    <form action="${BASE}/login/user" method="POST">
-        <table class="table table-bordered" >
-            <tr>
-                <td><label>用户名称：</label></td>
-                <td>
-                    <input type="text" name="username" />
-                </td>
-            </tr>
-            <tr>
-                <td><label>用户密码：</label></td>
-                <td>
-                    <input type="text" name="password" />
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" class="btn">&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" class="btn"></td>
-            </tr>
-        </table>
-    </form>
-
-    <p align="center"><h3></h3></p>
 
 </body>
 </html>

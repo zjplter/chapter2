@@ -25,7 +25,7 @@ public class CustomerCreateServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        customerService =new CustomerService();
+        customerService = new CustomerService();
     }
 
     /**
@@ -34,7 +34,7 @@ public class CustomerCreateServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        req.getRequestDispatcher("/WEB-INF/view/customer/customer_create.jsp").forward(req,resp);
+        req.getRequestDispatcher("/WEB-INF/view/customer/customer_create.jsp").forward(req, resp);
     }
 
     /**
@@ -43,7 +43,7 @@ public class CustomerCreateServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Map<String,Object> map=new HashMap<String,Object>();
+        Map<String, Object> map = new HashMap<String, Object>();
 
         req.setCharacterEncoding("UTF-8");
 
@@ -53,17 +53,17 @@ public class CustomerCreateServlet extends HttpServlet {
         String email = req.getParameter("email");
         String id = req.getParameter("id");
 
-        map.put("name",name);
-        map.put("contact",contact);
-        map.put("telephone",telephone);
-        map.put("email",email);
+        map.put("name", name);
+        map.put("contact", contact);
+        map.put("telephone", telephone);
+        map.put("email", email);
 
         customerService.createCustomer(map);
 
         List<Customer> customerList = customerService.getCustomerList();
 
-        req.setAttribute("customerList",customerList);
+        req.setAttribute("customerList", customerList);
 
-        req.getRequestDispatcher("/WEB-INF/view/customer/customer.jsp").forward(req,resp);
+        req.getRequestDispatcher("/WEB-INF/view/customer/customer.jsp").forward(req, resp);
     }
 }
