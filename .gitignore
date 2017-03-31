@@ -1,7 +1,11 @@
+# IDEA #
 .idea/
 *.iml
 out/
 gen/
 
-# mac
+# MAC
 .DS_Store
+
+# Maven #
+target/
