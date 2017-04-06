@@ -20,6 +20,11 @@
     <!--[if IE]>
     <script src="http://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
+    <style type="text/css">
+        body {
+            background-color: #7ab5d3;
+        }
+    </style>
 </head>
 <body>
     <div class="htmleaf-container" style="margin-top: 200px;">

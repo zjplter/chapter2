@@ -16,8 +16,9 @@
 </head>
 <body>
 
-    <div style="margin: auto; width:1000px;">
-        <h1>查看客户界面</h1>
+    <div style="margin: auto; width:1000px; ">
+
+        <h1 align="center">查看客户界面</h1>
 
         <div>
             <a href="${BASE}/customer" class="btn btn-success">后退</a>
